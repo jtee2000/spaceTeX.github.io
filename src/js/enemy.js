@@ -10,7 +10,7 @@ export default class Enemey {
         this.x = 0; 
         this.y = 0; 
         this.x_alien = 800; 
-        this.y_alien = 800; 
+        this.y_alien = 500; 
         this.dx = 2; 
         this.dy = -2; 
         this.dx_alien = -3; 
@@ -32,7 +32,7 @@ export default class Enemey {
             // this.ctx.imageSmoothingEnabled = true; 
             // this.ctx.drawImage(asteroid, 46, 49, 210, 190, this.x, this.y, 64, 70.73);
             // this.ctx.drawImage(asteroid, 46, 49, 210, 190, this.x, this.y, 64, 70.73);
-            this.ctx.drawImage(asteroid, this.x, this.y)  
+            this.ctx.drawImage(asteroid, 40, 50, 170, 170, this.x, this.y, 256, 256)  
         };
         alien.onload = ( () => {
             this.ctx.drawImage(alien, this.x_alien, this.y_alien, 250, 250)
@@ -43,22 +43,20 @@ export default class Enemey {
     
 
     animateAsteroid() {
-        debugger
         this.x += this.dx; 
         this.y += this.dy; 
         this.x_alien += this.dx_alien; 
         this.y_alien += this.dy_alien; 
         if (this.x > this.canvas.width -256 || this.x < 0) {
-            debugger
             this.dx = -this.dx; 
         }
         if (this.y > this.canvas.height- 256 || this.y < 0) {
             this.dy = -this.dy; 
         }
-        if (this.x_alien > this.canvas.width || this.x_alien < 0) {
+        if (this.x_alien > this.canvas.width-250 || this.x_alien < 0) {
             this.dx_alien = -this.dx_alien
         }
-        if (this.y_alien > this.canvas.height || this.y_alien < 0) {
+        if (this.y_alien > this.canvas.height-250 || this.y_alien < 0) {
             this.dy_alien = -this.dy_alien
         }
         this.drawAsteroid(); 
