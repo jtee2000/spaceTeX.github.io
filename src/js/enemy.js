@@ -28,15 +28,15 @@ export default class Enemey {
         // asteroid.src = "https://latex-racer.s3.amazonaws.com/asteroid.png";
         asteroid.src = "src/assets/asteroid.png"; 
         alien.src = "src/assets/silverufo.png"
-        asteroid.onload = () => {
+        // asteroid.onload = () => {
             // this.ctx.imageSmoothingEnabled = true; 
             // this.ctx.drawImage(asteroid, 46, 49, 210, 190, this.x, this.y, 64, 70.73);
             // this.ctx.drawImage(asteroid, 46, 49, 210, 190, this.x, this.y, 64, 70.73);
             this.ctx.drawImage(asteroid, 40, 50, 170, 170, this.x, this.y, 256, 256)  
-        };
-        alien.onload = ( () => {
+        // };
+        // alien.onload = ( () => {
             this.ctx.drawImage(alien, this.x_alien, this.y_alien, 250, 250)
-        })
+        // })
 
     }
 
