@@ -1,6 +1,7 @@
-import Layout from './js/layout.js';
+import Layout from './js/layout';
+import Enemy from './js/enemy';
 
 document.addEventListener('DOMContentLoaded', () => {
-    console.log("hello")
     const background = new Layout();
+    const enemey = new Enemy(); 
 })
