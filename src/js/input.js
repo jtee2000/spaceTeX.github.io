@@ -1,23 +1,26 @@
-
-
 export default class Input {
     constructor() {
         this.input = document.getElementById("typing-input-field");
         this.onChange = this.onChange.bind(this);
         this.enterPressed = this.enterPressed.bind(this);
-        this.enterPressed(); 
-        this.onChange();
-
+        // this.onChange();
         
+        this.index = null; 
+        this.verify = false; 
     }
 
-    enterPressed() {
-        this.input.addEventListener("keydown", (e) => {
+    enterPressed(e, arr) {
+            this.input.verify = false; 
             if (e.keyCode === 13) {
-                this.input.value = "";
-                console.log("You hit enter!")
+                for (let i = 0; i < arr.length; i++) {
+                    if (arr[i].latex === this.input.value) {
+                        debugger
+                        this.input.value = "";
+                        this.index = i; 
+                        this.verify = true; 
+                    }
+                }
             }
-        })
     }
 
 

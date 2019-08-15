@@ -32,6 +32,10 @@ export default class Enemey {
         this.alien = new Image();
         this.alien.src = "src/assets/silverufo.png"
 
+        // Initialize latex 
+        this.latex = "\\left(\\frac{1}{\\sqrt{x}}\\right)";
+        this.latex2 = "F(x)&=\\int^a_b\\frac{1}{3}x^3";
+
         // this.animateAsteroid();
         // setInterval(this.animateAsteroid, 50);
     }
@@ -71,20 +75,17 @@ export default class Enemey {
     }
 
     drawAsteroid() {
-        var latex = "\\left(\\frac{1}{\\sqrt{x}}\\right)"
         this.ctx.drawImage(this.asteroid, 40, 50, 170, 170, this.x, this.y, 256, 256)
         this.ctx.font = "30px Arial";
         this.ctx.fillStyle = "aquamarine";
-        this.ctx.fillText(latex, this.x - 20, this.y + 130);
+        this.ctx.fillText(this.latex, this.x - 20, this.y + 130);
     }
 
     drawAlien() {
-        var latex2 = "F(x)&=\\int^a_b\\frac{1}{3}x^3"
-        "F(x) &=\int ^ a_b\frac{ 1 } { 3 } x ^ 3"
         this.ctx.drawImage(this.alien, this.x_alien, this.y_alien, 250, 250);
         this.ctx.font = "30px Arial";
         this.ctx.fillStyle = "aquamarine";
-        this.ctx.fillText(latex2, this.x_alien - 20, this.y_alien + 150);
+        this.ctx.fillText(this.latex2, this.x_alien - 20, this.y_alien + 150);
     }
 
 

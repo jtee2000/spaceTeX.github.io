@@ -1,5 +1,5 @@
 import Enemy from './enemy';
-
+import Input from './input';
 
 export default class Game {
 
@@ -15,15 +15,21 @@ export default class Game {
         this.canvas.height = 800;
         this.ctx = this.canvas.getContext("2d");
 
-        
+        //Populate enemies
         this.enemeyArr = []; 
         this.populateEnemies(); 
+
+        //Create new instance of input field 
+        this.field = new Input();
+        this.field.input.addEventListener("keydown", (e) => {
+            this.field.enterPressed(e, this.enemeyArr)
+        });
     }
 
 
     populateEnemies() {
         for (let i = 0; i < 1; i++) {
-            this.enemeyArr.push(new Enemy())
+            this.enemeyArr.push(new Enemy());
         }
     }
 
@@ -31,6 +37,11 @@ export default class Game {
 
     renderEnemies() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        debugger
+        if (this.field.verify === true) {
+            debugger
+            this.enemeyArr.splice(this.field.index, 1); 
+        }
         for (let i = 0; i < this.enemeyArr.length; i++) {
             this.enemeyArr[i].draw(); 
         }
