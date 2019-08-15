@@ -1,6 +1,7 @@
 import Enemy from './enemy';
 import Input from './input';
 import Enemey from './enemy';
+import { clearInterval } from 'timers';
 
 export default class Game {
 
@@ -28,6 +29,10 @@ export default class Game {
 
         //instantiate score 
         this.score = document.getElementById("score"); 
+
+        // inititialize mathfield 
+        this.htmlElement = document.getElementById('mathField');
+        this.mathField = MQ.MathField(this.htmlElement); 
     }
 
 
@@ -41,11 +46,16 @@ export default class Game {
 
     renderEnemies() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.mathField.latex(this.field.input.value);
         if (this.field.verify === true) {
             debugger
             this.score.value = `${parseInt(this.score.value, 10) + 1}`
             this.field.verify = false; 
             this.enemeyArr.splice(this.field.index, 1); 
+        }
+        if (this.enemeyArr.length === 10) {
+            this.end(); 
+            console.log("You lose"); 
         }
         for (let i = 0; i < this.enemeyArr.length; i++) {
             this.enemeyArr[i].draw(); 
@@ -53,6 +63,10 @@ export default class Game {
     }
 
     start() {
-        setInterval(this.renderEnemies, 100)
+        this.timer = setInterval(this.renderEnemies, 100);
+    }
+
+    end() {
+        clearInterval(this.timer);
     }
 }

@@ -42,7 +42,7 @@ export default class Enemey {
         "\\frac{d}{dx}\\sin x=\\cos x",
         "\\bigcup_{i=1}^{n}{X_i}",
         "\\bigcap_{i=1}^{n}{X_i}",
-        "\\int_{0}^{\\pi} \\sin x \\, dx = 2",
+        "\\int_{0}^{\\pi} \\sin x \\ dx = 2",
         "\\left(x-1\\right)\\left(x+3\\right)",
         "\\lim_{a \\rightarrow b}",
         "\\bigvee_a^b x", 
@@ -50,8 +50,9 @@ export default class Enemey {
         this.latex = this.latexArr[Math.floor(Math.random() * this.latexArr.length)];
         // this.latex2 = "F(x)&=\\int^a_b\\frac{1}{3}x^3";
 
-        // this.animateAsteroid();
-        // setInterval(this.animateAsteroid, 50);
+        
+
+
     }
 
     draw() {
@@ -90,7 +91,7 @@ export default class Enemey {
 
     drawAsteroid() {
         this.ctx.drawImage(this.asteroid, 40, 50, 170, 170, this.x, this.y, 256, 256)
-        this.ctx.font = "30px Arial";
+        this.ctx.font = "30px Times New Roman";
         this.ctx.fillStyle = "aquamarine";
         this.ctx.fillText(this.latex, this.x - 20, this.y + 130);
     }
