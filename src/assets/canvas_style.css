@@ -25,3 +25,18 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: white; 
 }
+
+#score {
+    position: absolute; 
+    z-index: 10; 
+    top: 10%; 
+    width: 100px; 
+    padding: 20px; 
+    font-size: 60px; 
+    border-radius: 10px; 
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: yellow; 
+    right: 7%; 
+    /* background-color: #50BFE6;  */
+
+}

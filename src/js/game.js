@@ -25,6 +25,9 @@ export default class Game {
         this.field.input.addEventListener("keydown", (e) => {
             this.field.enterPressed(e, this.enemeyArr)
         });
+
+        //instantiate score 
+        this.score = document.getElementById("score"); 
     }
 
 
@@ -39,6 +42,8 @@ export default class Game {
     renderEnemies() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         if (this.field.verify === true) {
+            debugger
+            this.score.value = `${parseInt(this.score.value, 10) + 1}`
             this.field.verify = false; 
             this.enemeyArr.splice(this.field.index, 1); 
         }

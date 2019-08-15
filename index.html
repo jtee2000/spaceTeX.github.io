@@ -8,13 +8,25 @@
     <link rel="stylesheet" type="text/css" href="./src/assets/css_reset.css">
     <link rel="stylesheet" type="text/css" href="./src/assets/canvas_style.css">
     <script src="./dist/bundle.js"></script>
+    <link rel="stylesheet" href="./src/assets/mathquill.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="./mathquill/mathquill.js"></script>
+    <script>
+        var MQ = MathQuill.getInterface(2);
+    </script>
 </head>
 
 <body>
     <div class="canvas-wrapper">
         <canvas id="splash" class="stars"> </canvas>
         <input type="text" value="" id="typing-input-field">  
+        <input type="text" value="0" disabled id="score">
     </div>
+    <span id="test">\bigvee_a^b x</span>
+    <script>
+        var hello = document.getElementById("test");
+        console.log(MQ.latex(hello.innerHTML));
+    </script>
 </body>
 </html>
 
