@@ -5,7 +5,8 @@ export default class Enemey {
         this.drawEnemies = this.drawEnemies.bind(this); 
         this.drawAsteroid = this.drawAsteroid.bind(this);
         this.drawAlien = this.drawAlien.bind(this);
-        this.animateAsteroid = this.animateAsteroid.bind(this);
+        this.animateEnemies = this.animateEnemies.bind(this);
+        this.draw = this.draw.bind(this); 
 
         //get and set canvas
         this.canvas = document.getElementById("splash");
@@ -25,7 +26,18 @@ export default class Enemey {
         this.dx_alien = -3; 
         this.dy_alien = 3; 
 
-        setInterval(this.animateAsteroid, 50);
+        //initialize alien and asteroid photos 
+        this.asteroid = new Image();
+        this.asteroid.src = "src/assets/asteroid.png";
+        this.alien = new Image();
+        this.alien.src = "src/assets/silverufo.png"
+
+        // this.animateAsteroid();
+        // setInterval(this.animateAsteroid, 50);
+    }
+
+    draw() {
+        this.animateEnemies();
     }
     
     
@@ -33,7 +45,8 @@ export default class Enemey {
         // debugger
         // var latex = "\\left(\\frac{1}{\\sqrt{x}}\\right)"
         // var latex2 = "F(x)&=\\int^a_b\\frac{1}{3}x^3"
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        // this.ctx.clearRect(this.x, this.y, this.asteroid.width, this.asteroid.height);
+        // this.ctx.clearRect(this.x_alien, this.y_alien, this.alien.width, this.alien.height);
         // const asteroid = new Image(); 
         // asteroid.src = "src/assets/asteroid.png"; 
         // const alien = new Image(); 
@@ -59,9 +72,7 @@ export default class Enemey {
 
     drawAsteroid() {
         var latex = "\\left(\\frac{1}{\\sqrt{x}}\\right)"
-        const asteroid = new Image();
-        asteroid.src = "src/assets/asteroid.png"; 
-        this.ctx.drawImage(asteroid, 40, 50, 170, 170, this.x, this.y, 256, 256)
+        this.ctx.drawImage(this.asteroid, 40, 50, 170, 170, this.x, this.y, 256, 256)
         this.ctx.font = "30px Arial";
         this.ctx.fillStyle = "aquamarine";
         this.ctx.fillText(latex, this.x - 20, this.y + 130);
@@ -69,9 +80,8 @@ export default class Enemey {
 
     drawAlien() {
         var latex2 = "F(x)&=\\int^a_b\\frac{1}{3}x^3"
-        const alien = new Image();
-        alien.src = "src/assets/silverufo.png"
-        this.ctx.drawImage(alien, this.x_alien, this.y_alien, 250, 250);
+        "F(x) &=\int ^ a_b\frac{ 1 } { 3 } x ^ 3"
+        this.ctx.drawImage(this.alien, this.x_alien, this.y_alien, 250, 250);
         this.ctx.font = "30px Arial";
         this.ctx.fillStyle = "aquamarine";
         this.ctx.fillText(latex2, this.x_alien - 20, this.y_alien + 150);
@@ -81,7 +91,7 @@ export default class Enemey {
 
     
 
-    animateAsteroid() {
+    animateEnemies() {
         this.x += this.dx; 
         this.y += this.dy; 
         this.x_alien += this.dx_alien; 
@@ -99,6 +109,7 @@ export default class Enemey {
             this.dy_alien = -this.dy_alien
         }
         this.drawEnemies(); 
+        // requestAnimationFrame(this.animateEnemies);
     }
 
 
