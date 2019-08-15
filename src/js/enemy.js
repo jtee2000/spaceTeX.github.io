@@ -4,7 +4,7 @@ export default class Enemey {
         //bind functions
         this.drawEnemies = this.drawEnemies.bind(this); 
         this.drawAsteroid = this.drawAsteroid.bind(this);
-        this.drawAlien = this.drawAlien.bind(this);
+        // this.drawAlien = this.drawAlien.bind(this);
         this.animateEnemies = this.animateEnemies.bind(this);
         this.draw = this.draw.bind(this); 
 
@@ -33,8 +33,22 @@ export default class Enemey {
         this.alien.src = "src/assets/silverufo.png"
 
         // Initialize latex 
-        this.latex = "\\left(\\frac{1}{\\sqrt{x}}\\right)";
-        this.latex2 = "F(x)&=\\int^a_b\\frac{1}{3}x^3";
+        this.latexArr = 
+        ["\\frac{d}{dx}c^n=nx^{n-1}", 
+        "\\frac{\\partial y}{\\partial x}", 
+        "\\frac{d}{dx}c^n=nx^{n-1}", 
+        "\\frac{d}{dx}e^{ax}=a\\,e^{ax}",
+        "\\frac{d}{dx}\\ln(x)=\\frac{1}{x}",
+        "\\frac{d}{dx}\\sin x=\\cos x",
+        "\\bigcup_{i=1}^{n}{X_i}",
+        "\\bigcap_{i=1}^{n}{X_i}",
+        "\\int_{0}^{\\pi} \\sin x \\, dx = 2",
+        "\\left(x-1\\right)\\left(x+3\\right)",
+        "\\lim_{a \\rightarrow b}",
+        "\\bigvee_a^b x", 
+        "\\sum_a^b x"]
+        this.latex = this.latexArr[Math.floor(Math.random() * this.latexArr.length)];
+        // this.latex2 = "F(x)&=\\int^a_b\\frac{1}{3}x^3";
 
         // this.animateAsteroid();
         // setInterval(this.animateAsteroid, 50);
@@ -64,7 +78,7 @@ export default class Enemey {
         // this.ctx.fillStyle = "aquamarine";
         // this.ctx.fillText(latex, this.x-20, this.y+130);
         this.drawAsteroid();
-        this.drawAlien();
+        // this.drawAlien();
         // };
         // alien.onload = ( () => {
         // this.ctx.drawImage(alien, this.x_alien, this.y_alien, 250, 250);
@@ -81,12 +95,12 @@ export default class Enemey {
         this.ctx.fillText(this.latex, this.x - 20, this.y + 130);
     }
 
-    drawAlien() {
-        this.ctx.drawImage(this.alien, this.x_alien, this.y_alien, 250, 250);
-        this.ctx.font = "30px Arial";
-        this.ctx.fillStyle = "aquamarine";
-        this.ctx.fillText(this.latex2, this.x_alien - 20, this.y_alien + 150);
-    }
+    // drawAlien() {
+    //     this.ctx.drawImage(this.alien, this.x_alien, this.y_alien, 250, 250);
+    //     this.ctx.font = "30px Arial";
+    //     this.ctx.fillStyle = "aquamarine";
+    //     this.ctx.fillText(this.latex2, this.x_alien - 20, this.y_alien + 150);
+    // }
 
 
 
