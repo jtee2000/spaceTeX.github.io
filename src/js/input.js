@@ -14,12 +14,11 @@ export default class Input {
             if (e.keyCode === 13) {
                 for (let i = 0; i < arr.length; i++) {
                     if (arr[i].latex === this.input.value) {
-                        debugger
-                        this.input.value = "";
                         this.index = i; 
                         this.verify = true; 
                     }
                 }
+                this.input.value = "";
             }
     }
 
