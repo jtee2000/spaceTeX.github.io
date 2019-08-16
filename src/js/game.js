@@ -37,6 +37,7 @@ export default class Game {
 
         //initialize spaceship 
         this.spaceship = new Spaceship(); 
+        // this.spaceship.drawSpaceship();
     }
 
 
@@ -49,7 +50,7 @@ export default class Game {
     
 
     renderEnemies() {
-        this.spaceship.drawSpaceship(); 
+        
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.mathField.latex(this.field.input.value);
         if (this.field.verify === true) {
@@ -66,6 +67,8 @@ export default class Game {
         for (let i = 0; i < this.enemeyArr.length; i++) {
             this.enemeyArr[i].draw(); 
         }
+        this.spaceship.drawSpaceship(); 
+        this.spaceship.draw(); 
     }
 
     start() {

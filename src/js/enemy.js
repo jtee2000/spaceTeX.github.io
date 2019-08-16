@@ -73,10 +73,6 @@ export default class Enemey {
         // Initialize latex 
         this.latex = this.latexArr[Math.floor(Math.random() * this.latexArr.length)];
 
-        if (enemy_count === 5) {
-            console.log("It worked")
-        }
-
 
     }
 
@@ -116,6 +112,7 @@ export default class Enemey {
 
     drawAsteroid() {
         this.ctx.drawImage(this.asteroid, 40, 50, 170, 170, this.x, this.y, 150, 170)
+        debugger
         this.ctx.font = "30px Times New Roman";
         this.ctx.fillStyle = "aquamarine";
         this.ctx.fillText(this.latex, this.x - 20, this.y + 130);

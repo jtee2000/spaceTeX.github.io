@@ -1,10 +1,13 @@
 import Layout from './js/layout';
 import Game from './js/game';
+import Spaceship from './js/spaceship'; 
 
 document.addEventListener('DOMContentLoaded', () => {
     const background = new Layout();
     // const enemey = new Enemy(); 
     // const enemey2 = new Enemy(); 
+    // const spaceship = new Spaceship();
+    // spaceship.drawSpaceship();
     const game = new Game(); 
     game.start()
     // function draw() {
