@@ -1,4 +1,4 @@
-
+import { easyArr } from "./easy_arr";
 var enemy_count = 0; 
 
 export default class Enemey {
@@ -22,7 +22,7 @@ export default class Enemey {
 
         //set initial positions of asteroid
         const pos = [[0,0], [740, 0], [1300, 0]];
-        const random = (Math.floor(Math.random() * 3)); 
+        const random = enemy_count%3; 
         [this.x, this.y] = pos[random];
         // this.x = Math.floor((Math.random() * (this.canvas.width-300))); 
         // this.y = Math.floor((Math.random() * (this.canvas.height - 300))); 
@@ -51,30 +51,30 @@ export default class Enemey {
         this.alien = new Image();
         this.alien.src = "src/assets/silverufo.png"
 
-        const easyArr = 
-        []
+        if (enemy_count < 50) {
+            this.latexArr = easyArr; 
+        } else {
+            this.latexArr = 
+            ["\\frac{d}{dx}c^n=nx^{n-1}", 
+            "\\frac{\\partial y}{\\partial x}", 
+            "\\frac{d}{dx}c^n=nx^{n-1}", 
+            "\\frac{d}{dx}e^{ax}=a\\,e^{ax}",
+            "\\frac{d}{dx}\\ln(x)=\\frac{1}{x}",
+            "\\frac{d}{dx}\\sin x=\\cos x",
+            "\\bigcup_{i=1}^{n}{X_i}",
+            "\\bigcap_{i=1}^{n}{X_i}",
+            "\\int_{0}^{\\pi} \\sin x \\ dx = 2",
+            "\\left(x-1\\right)\\left(x+3\\right)",
+            "\\lim_{a \\rightarrow b}",
+            "\\bigvee_a^b x", 
+            "\\sum_a^b x"]
+        }
 
         // Initialize latex 
-        this.latexArr = 
-        ["\\frac{d}{dx}c^n=nx^{n-1}", 
-        "\\frac{\\partial y}{\\partial x}", 
-        "\\frac{d}{dx}c^n=nx^{n-1}", 
-        "\\frac{d}{dx}e^{ax}=a\\,e^{ax}",
-        "\\frac{d}{dx}\\ln(x)=\\frac{1}{x}",
-        "\\frac{d}{dx}\\sin x=\\cos x",
-        "\\bigcup_{i=1}^{n}{X_i}",
-        "\\bigcap_{i=1}^{n}{X_i}",
-        "\\int_{0}^{\\pi} \\sin x \\ dx = 2",
-        "\\left(x-1\\right)\\left(x+3\\right)",
-        "\\lim_{a \\rightarrow b}",
-        "\\bigvee_a^b x", 
-        "\\sum_a^b x"]
         this.latex = this.latexArr[Math.floor(Math.random() * this.latexArr.length)];
-        // this.latex2 = "F(x)&=\\int^a_b\\frac{1}{3}x^3";
 
         if (enemy_count === 5) {
             console.log("It worked")
-
         }
 
 

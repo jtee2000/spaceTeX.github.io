@@ -13,7 +13,7 @@
 }
 
 #typing-input-field {
-    background-color:  #50BFE6;
+    background-color:  aquamarine;
     position: absolute;
     right: calc(50% - 135px); 
     z-index: 5;
@@ -23,38 +23,39 @@
     font-size: 20px; 
     border-radius: 10px; 
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: white; 
+    color: black; 
 }
 
 #typing-input-field::placeholder {
-    color: white; 
+    color: black; 
 }
 
 #score {
     position: absolute; 
     z-index: 10; 
     top: 10%; 
-    width: 100px; 
+    width: 150px; 
     padding: 20px; 
-    font-size: 60px; 
+    font-size: 100px; 
     border-radius: 10px; 
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: yellow; 
-    right: 7%; 
+    right: 15%; 
     /* background-color: #50BFE6;  */
 }
 
 #mathField {
     position: absolute;
     z-index: 100; 
-    bottom: 20%; 
+    bottom: 50%; 
     width: 300px; 
     padding: 10px; 
     height: 75px; 
-    font-size: 20px; 
+    font-size: 70px; 
     right: calc(50% - 135px); 
     color: white; 
-    background-color: gray;
+    border: none;  
+    /* background-color: gray; */
     text-align: center;
 
 }
