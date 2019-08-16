@@ -19,7 +19,7 @@ export default class Game {
 
         //Populate enemies
         this.enemeyArr = [new Enemey()]; 
-        setInterval(this.populateEnemies, 100); 
+        setInterval(this.populateEnemies, 10000); 
 
         //Create new instance of input field 
         this.field = new Input();

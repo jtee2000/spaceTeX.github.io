@@ -1,7 +1,13 @@
+
+var enemy_count = 0; 
+
 export default class Enemey {
+
 
     constructor() {
         //bind functions
+        enemy_count++; 
+
         this.drawEnemies = this.drawEnemies.bind(this); 
         this.drawAsteroid = this.drawAsteroid.bind(this);
         // this.drawAlien = this.drawAlien.bind(this);
@@ -14,23 +20,39 @@ export default class Enemey {
         this.canvas.height = 800; 
         this.ctx = this.canvas.getContext("2d");
 
-        //set initial positions of asteroid and alien
-        this.x = Math.floor((Math.random() * (this.canvas.width-300))); 
-        this.y = Math.floor((Math.random() * (this.canvas.height - 300))); 
-        this.x_alien = Math.floor((Math.random() * (this.canvas.width - 300))); 
-        this.y_alien = Math.floor((Math.random() * (this.canvas.height - 300))); 
+        //set initial positions of asteroid
+        const pos = [[0,0], [740, 0], [1300, 0]];
+        const random = (Math.floor(Math.random() * 3)); 
+        [this.x, this.y] = pos[random];
+        // this.x = Math.floor((Math.random() * (this.canvas.width-300))); 
+        // this.y = Math.floor((Math.random() * (this.canvas.height - 300))); 
+        // this.x_alien = Math.floor((Math.random() * (this.canvas.width - 300))); 
+        // this.y_alien = Math.floor((Math.random() * (this.canvas.height - 300))); 
 
         //set delta values for animation 
-        this.dx = 2; 
-        this.dy = -2; 
-        this.dx_alien = -3; 
-        this.dy_alien = 3; 
+        if (random === 0) {
+            this.dx = 2; 
+            this.dy = -2;
+        } else if (random === 1) {
+            this.dx = 0; 
+            this.dy = 2; 
+        } else {
+            this.dx = -2; 
+            this.dy = 2; 
+        }
+        // this.dx = 2; 
+        // this.dy = -2; 
+        // this.dx_alien = -3; 
+        // this.dy_alien = 3; 
 
         //initialize alien and asteroid photos 
         this.asteroid = new Image();
         this.asteroid.src = "src/assets/asteroid.png";
         this.alien = new Image();
         this.alien.src = "src/assets/silverufo.png"
+
+        const easyArr = 
+        []
 
         // Initialize latex 
         this.latexArr = 
@@ -50,7 +72,10 @@ export default class Enemey {
         this.latex = this.latexArr[Math.floor(Math.random() * this.latexArr.length)];
         // this.latex2 = "F(x)&=\\int^a_b\\frac{1}{3}x^3";
 
-        
+        if (enemy_count === 5) {
+            console.log("It worked")
+
+        }
 
 
     }
@@ -90,7 +115,7 @@ export default class Enemey {
     }
 
     drawAsteroid() {
-        this.ctx.drawImage(this.asteroid, 40, 50, 170, 170, this.x, this.y, 256, 256)
+        this.ctx.drawImage(this.asteroid, 40, 50, 170, 170, this.x, this.y, 150, 170)
         this.ctx.font = "30px Times New Roman";
         this.ctx.fillStyle = "aquamarine";
         this.ctx.fillText(this.latex, this.x - 20, this.y + 130);
