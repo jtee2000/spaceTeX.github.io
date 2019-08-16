@@ -62,6 +62,9 @@
 .loser {
     display: none; 
     font-size: 50px; 
-    color: black;
+    position: absolute; 
+    color: white;
     z-index: 100; 
+    right: calc(50% - 110px); 
+    top: 50%; 
 }
