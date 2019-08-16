@@ -19,7 +19,7 @@ export default class Game {
 
         //Populate enemies
         this.enemeyArr = [new Enemey()]; 
-        setInterval(this.populateEnemies, 7000); 
+        setInterval(this.populateEnemies, 100); 
 
         //Create new instance of input field 
         this.field = new Input();
@@ -55,6 +55,7 @@ export default class Game {
         }
         if (this.enemeyArr.length === 10) {
             this.end(); 
+            document.getElementById("you-lose").style.display = "inline";
             console.log("You lose"); 
         }
         for (let i = 0; i < this.enemeyArr.length; i++) {
@@ -67,6 +68,6 @@ export default class Game {
     }
 
     end() {
-        clearInterval(this.timer);
+        window.clearInterval(this.timer);
     }
 }
