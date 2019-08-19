@@ -3,24 +3,18 @@ import Game from './js/game';
 import Spaceship from './js/spaceship'; 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const background = new Layout();
-    // const enemey = new Enemy(); 
-    // const enemey2 = new Enemy(); 
-    // const spaceship = new Spaceship();
-    // spaceship.drawSpaceship();
-    const game = new Game(); 
-    game.start()
-    // function draw() {
-    //     // loops through enenmies and draws
-    // }
+    
+    const button = document.getElementById("button"); 
+    button.addEventListener("click", () => {
+        const game = new Game(); 
+        const background = new Layout();
+        const splashScreen = document.getElementById("homescreen"); 
+        const canvas = document.getElementById("canvas-wrapper"); 
+        canvas.style.display = "block";
+        splashScreen.style.display = "none"; 
 
-    // requestAnimationFrame(draw)
-
-    // const game = new Game()
-    // game.start()
-
-    // for (let i = 0; i < 3; i ++) {
-    //     Array.push(new Enemey())
-    // }
+        game.start();
+    })
+    
 
 })
