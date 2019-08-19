@@ -62,6 +62,7 @@ export default class Game {
         if (this.enemeyArr.length === 10) {
             this.end(); 
             document.getElementById("you-lose").style.display = "inline";
+            document.getElementById("button").style.display = "inline"
             console.log("You lose"); 
         }
         for (let i = 0; i < this.enemeyArr.length; i++) {
