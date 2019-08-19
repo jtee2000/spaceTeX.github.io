@@ -82,7 +82,6 @@ export const easyArr = [
     "\\perp", 
     "\\phi", 
     "\\pi", 
-    "\\overbrace{text}", 
     "\\overline{text}", 
     "\\P", 
     "\\parallel", 
