@@ -114,7 +114,7 @@ export default class Enemey {
         this.ctx.drawImage(this.asteroid, 40, 50, 170, 170, this.x, this.y, 150, 170)
         debugger
         this.ctx.font = "30px Times New Roman";
-        this.ctx.fillStyle = "aquamarine";
+        this.ctx.fillStyle = "white";
         this.ctx.fillText(this.latex, this.x - 20, this.y + 130);
     }
 
