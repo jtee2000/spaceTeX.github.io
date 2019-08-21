@@ -47,7 +47,7 @@ export default class Spaceship {
     }
 
     drawSpaceship() {
-        this.ctx.drawImage(this.ship, 730, 550, 100, 100);
+        this.ctx.drawImage(this.ship, 755, 550, 100, 100);
     }
 
     drawMissle(posx, posy, x,y) {

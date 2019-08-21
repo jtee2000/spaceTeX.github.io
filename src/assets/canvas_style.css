@@ -16,7 +16,7 @@
 #typing-input-field {
     background-color:  #017B00;
     position: absolute;
-    right: calc(50% - 135px); 
+    right: calc(50% - 150px); 
     z-index: 5;
     bottom: 10%; 
     width: 300px;
@@ -64,21 +64,40 @@
 
 }
 
-.loser {
+.loser h1{
     display: none; 
     font-size: 50px; 
     position: absolute; 
-    color: white;
-    z-index: 100; 
-    right: calc(50% - 50px); 
-    top: 50%; 
+    /* color: white;
+    z-index: 100;  */
+    right: calc(50% - 155px); 
+    top: 30%; 
     font-family: 'Quantico', sans-serif;
     text-align: center; 
-    box-shadow: 5px 5px 15px #017B00; 
-    border-radius: 7px; 
-    border: 1px solid #017B00; 
-    padding: 15px; 
+
+    color: #fff;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    /* border-right: .15em solid #017B00; */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+    typing 1.5s steps(30, end),
+    blink-caret .3s step-end 8;
 }
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 20% }
+}
+
+/* The typewriter cursor effect */
+/* @keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: transparent }
+} */
 
 .loser:hover {
     cursor: pointer;
