@@ -1,5 +1,3 @@
-
-
 export default class Explosion {
     constructor(x, y) {
         this.animateExplosion = this.animateExplosion.bind(this); 
@@ -39,11 +37,11 @@ export default class Explosion {
             this.stopAnimation(); 
         }
         this.drawExplosion()
-        requestAnimationFrame(this.draw)
+        // this.test = requestAnimationFrame(this.draw)
     }   
     
     animateExplosion() {
-    //    this.animation = setInterval(this.draw, 1000 / 60);
+       this.animation = setInterval(this.draw, 1000 / 60);
         this.draw();
     }
 
