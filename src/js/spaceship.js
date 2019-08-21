@@ -71,11 +71,11 @@ export default class Spaceship {
     }
 
     animateMiddle(x, y) {
-        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ym += this.dym; 
         this.xm += this.dxm; 
         this.drawMissle(this.xm, this.ym, 0, 17); 
-        if (this.ym <= y) {
+        if (this.ym <= y-150) {
             this.stopAnimation(); 
         }
 
@@ -100,7 +100,7 @@ export default class Spaceship {
     drawMiddle(xpos, ypos) {
         this.middle = setInterval(() => {
             this.animateMiddle(xpos, ypos)
-        }, 10); 
+        }, 1000); 
     }
 
 

@@ -21,7 +21,7 @@ export default class Enemey {
         this.ctx = this.canvas.getContext("2d");
 
         //set initial positions of asteroid
-        const pos = [[0,0], [740, 0], [1300, 0]];
+        const pos = [[0,0], [720, 0], [1300, 0]];
         this.random = enemy_count%3; 
         [this.x, this.y] = pos[this.random];
         // this.x = Math.floor((Math.random() * (this.canvas.width-300))); 

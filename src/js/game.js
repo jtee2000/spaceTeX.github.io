@@ -3,6 +3,7 @@ import Input from './input';
 import Enemey from './enemy';
 import { clearInterval } from 'timers';
 import Spaceship from './spaceship';
+import Explosion from './explosion';
 
 export default class Game {
 
@@ -67,6 +68,7 @@ export default class Game {
             }
             this.enemeyArr.splice(this.field.index, 1); 
             // this.spaceship.animateMissle();
+            new Explosion(enemy.x, enemy.y);
         }
         if (this.enemeyArr.length === 10) {
             this.end(); 
