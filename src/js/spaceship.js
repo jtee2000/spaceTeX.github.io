@@ -32,7 +32,7 @@ export default class Spaceship {
 
         //initialize dxl and dyl 
         this.dxl = -60; 
-        this.dyl = -50; 
+        this.dyl = -40; 
 
         //initialize dxm and dym
         this.dxm = 0; 
@@ -60,6 +60,7 @@ export default class Spaceship {
     }
 
     animateLeft(x, y) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.yl += this.dyl; 
         this.xl += this.dxl; 
         this.drawMissle(this.xl, this.yl, 20, 17); 
@@ -70,6 +71,7 @@ export default class Spaceship {
     }
 
     animateMiddle(x, y) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.ym += this.dym; 
         this.xm += this.dxm; 
         this.drawMissle(this.xm, this.ym, 0, 17); 
@@ -80,6 +82,7 @@ export default class Spaceship {
     }
 
     animateRight(x, y) {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.yr += this.dyr; 
         this.xr += this.dxr
         this.drawMissle(this.xr, this.yr, -20, 17); 
@@ -102,6 +105,7 @@ export default class Spaceship {
 
 
     drawRight(xpos, ypos) {
+        
         this.right = setInterval(() => {
             this.animateRight(xpos, ypos)
         }, 10)

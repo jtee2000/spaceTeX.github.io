@@ -11,7 +11,6 @@ export default class Game {
         this.populateEnemies = this.populateEnemies.bind(this); 
         this.renderEnemies = this.renderEnemies.bind(this); 
 
-
         //get and set canvas
         this.canvas = document.getElementById("splash");
         this.canvas.width = 1600;
@@ -50,8 +49,10 @@ export default class Game {
     
 
     renderEnemies() {
-        
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        for (let i = 0; i < this.enemeyArr.length; i++) {
+            this.enemeyArr[i].draw(); 
+        }
         this.mathField.latex(this.field.input.value);
         if (this.field.verify === true) {
             const enemy = this.enemeyArr[this.field.index]
@@ -73,9 +74,7 @@ export default class Game {
             document.getElementById("button").style.display = "inline"
             console.log("You lose"); 
         }
-        for (let i = 0; i < this.enemeyArr.length; i++) {
-            this.enemeyArr[i].draw(); 
-        }
+
         this.spaceship.drawSpaceship(); 
         // this.spaceship.stopAnimation();
     }
