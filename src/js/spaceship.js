@@ -22,7 +22,8 @@ export default class Spaceship {
 
         //initialize dx
         // this.dx = 10; 
-        this.dy = -20; 
+        this.dy = -50; 
+        this.dx = 60;
 
     }
 
@@ -35,7 +36,7 @@ export default class Spaceship {
         debugger
         this.ctx.beginPath(); 
         this.ctx.moveTo(this.x,this.y); 
-        this.ctx.lineTo(this.x, this.y+17); 
+        this.ctx.lineTo(this.x-20, this.y+17); 
         this.ctx.strokeStyle = "white";
         this.ctx.lineWidth = 6; 
         this.ctx.stroke(); 
@@ -44,10 +45,12 @@ export default class Spaceship {
 
     animateMissle() {
         this.y += this.dy; 
+        this.x += this.dx
         this.drawMissle(); 
-        if (this.y === 500) {
+        if (this.y <= 0 || this.x >= 1600) {
             this.y = 550;
-        }
+            this.x = 780;
+        } 
     }
 
     draw() {

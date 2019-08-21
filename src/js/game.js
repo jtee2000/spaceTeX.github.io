@@ -54,7 +54,6 @@ export default class Game {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.mathField.latex(this.field.input.value);
         if (this.field.verify === true) {
-            debugger
             this.score.value = `${parseInt(this.score.value, 10) + 1}`
             this.field.verify = false; 
             this.enemeyArr.splice(this.field.index, 1); 
