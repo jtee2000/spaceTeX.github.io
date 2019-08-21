@@ -59,41 +59,52 @@ export default class Spaceship {
         this.ctx.stroke(); 
     }
 
-    animateLeft() {
+    animateLeft(x, y) {
         this.yl += this.dyl; 
         this.xl += this.dxl; 
         this.drawMissle(this.xl, this.yl, 20, 17); 
+        if (this.xl <= x || this.yl <= y) {
+            this.stopAnimation(); 
+        }
 
     }
 
-    animateMiddle() {
+    animateMiddle(x, y) {
         this.ym += this.dym; 
         this.xm += this.dxm; 
         this.drawMissle(this.xm, this.ym, 0, 17); 
+        if (this.ym <= y) {
+            this.stopAnimation(); 
+        }
 
     }
 
-    animateRight() {
+    animateRight(x, y) {
         this.yr += this.dyr; 
         this.xr += this.dxr
         this.drawMissle(this.xr, this.yr, -20, 17); 
-        if (this.yr <= 0 || this.xr >= 1600) {
-            this.y = 550;
-            this.x = 780;
+        if (this.yr <= y || this.xr >= x) {
+            this.stopAnimation();
         } 
     }
 
-    drawLeft() {
-        this.left = setInterval(this.animateLeft,  10);
+    drawLeft(xpos, ypos) {
+        this.left = setInterval(() => {
+            this.animateLeft(xpos, ypos)
+        },  10);
     }
 
-    drawMiddle() {
-        this.middle = setInterval(this.animateMiddle, 10); 
+    drawMiddle(xpos, ypos) {
+        this.middle = setInterval(() => {
+            this.animateMiddle(xpos, ypos)
+        }, 10); 
     }
 
 
-    drawRight() {
-        this.right = setInterval(this.animateRight, 10)
+    drawRight(xpos, ypos) {
+        this.right = setInterval(() => {
+            this.animateRight(xpos, ypos)
+        }, 10)
         // this.animateMissle();
     }
 

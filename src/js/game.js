@@ -54,14 +54,15 @@ export default class Game {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         this.mathField.latex(this.field.input.value);
         if (this.field.verify === true) {
+            const enemy = this.enemeyArr[this.field.index]
             this.score.value = `${parseInt(this.score.value, 10) + 1}`
             this.field.verify = false; 
-            if (this.enemeyArr[this.field.index].random === 0) {
-                this.spaceship.drawLeft(); 
-            } else if (this.enemeyArr[this.field.index].random === 1) {
-                this.spaceship.drawMiddle(); 
+            if (enemy.random === 0) {
+                this.spaceship.drawLeft(enemy.x, enemy.y); 
+            } else if (enemy.random === 1) {
+                this.spaceship.drawMiddle(enemy.x, enemy.y); 
             } else {
-                this.spaceship.drawRight(); 
+                this.spaceship.drawRight(enemy.x, enemy.y); 
             }
             this.enemeyArr.splice(this.field.index, 1); 
             // this.spaceship.animateMissle();
