@@ -70,10 +70,18 @@
     position: absolute; 
     color: white;
     z-index: 100; 
-    right: calc(50% - 110px); 
+    right: calc(50% - 50px); 
     top: 50%; 
     font-family: 'Quantico', sans-serif;
+    text-align: center; 
+    box-shadow: 5px 5px 15px #017B00; 
+    border-radius: 7px; 
+    border: 1px solid #017B00; 
+    padding: 15px; 
+}
 
+.loser:hover {
+    cursor: pointer;
 }
 
 .homescreen {

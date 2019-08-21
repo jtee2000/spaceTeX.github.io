@@ -8,6 +8,8 @@ export default class Game {
 
     constructor() {
         //bind functions
+        this.asteroid = new Image();
+        this.asteroid.src = "src/assets/asteroid.png";
         this.renderEnemies = this.renderEnemies.bind(this); 
         this.populateEnemies = this.populateEnemies.bind(this);
         //get and set canvas
@@ -17,7 +19,7 @@ export default class Game {
         this.ctx = this.canvas.getContext("2d");
 
         //Populate enemies
-        this.enemyArr = [new Enemy()]; 
+        this.enemyArr = [new Enemy(this.asteroid)]; 
         setInterval(this.populateEnemies, 2000); 
 
         //Create new instance of input field 
@@ -35,11 +37,17 @@ export default class Game {
 
         //initialize spaceship 
         this.spaceship = new Spaceship(); 
-        // this.spaceship.drawSpaceship();
+
+
+        //lose button 
+        const lose = document.getElementById("you-lose");
+        lose.addEventListener("click", () => {
+            location.reload();
+        })
     }
 
     
-
+    
     renderEnemies() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.enemyArr.length; i++) {
@@ -83,22 +91,25 @@ export default class Game {
         //     document.getElementById("button").style.display = "inline"
         //     console.log("You lose"); 
         // }
-
         this.spaceship.drawSpaceship(); 
-        // this.spaceship.stopAnimation();
+        // this.time = requestAnimationFrame(this.renderEnemies)
+
+
     }
 
     populateEnemies() {
         for (let i = 0; i < 1; i++) {
-            this.enemyArr.push(new Enemy());
+            this.enemyArr.push(new Enemy(this.asteroid));
         }
     }
 
     start() {
-        this.timer = setInterval(this.renderEnemies, 100);
+        this.timer = setInterval(this.renderEnemies, 1000 / 60);
+        // this.renderEnemies();
     }
 
     end() {
         window.clearInterval(this.timer);
+        // window.cancelAnimationFrame(this.time);
     }
 }

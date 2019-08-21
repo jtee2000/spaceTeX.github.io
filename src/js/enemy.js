@@ -4,7 +4,7 @@ var enemy_count = 0;
 export default class Enemy {
 
 
-    constructor() {
+    constructor(asteroid) {
         //bind functions
         enemy_count++; 
 
@@ -27,19 +27,20 @@ export default class Enemy {
 
         //set delta values for animation 
         if (this.random === 0) {
-            this.dx = 3; 
-            this.dy = -2;
+            this.dx = .5; 
+            this.dy = -.417;
         } else if (this.random === 1) {
             this.dx = 0; 
-            this.dy = 3; 
+            this.dy = .5; 
         } else {
-            this.dx = -2; 
-            this.dy = 2; 
+            this.dx = -.33; 
+            this.dy = -.33
         }
 
         //initialize alien and asteroid photos 
-        this.asteroid = new Image();
-        this.asteroid.src = "src/assets/asteroid.png";
+        // this.asteroid = new Image();
+        // this.asteroid.src = "src/assets/asteroid.png";
+        this.asteroid = asteroid;
         this.alien = new Image();
         this.alien.src = "src/assets/silverufo.png"
 
@@ -140,8 +141,5 @@ export default class Enemy {
         this.drawEnemies(); 
         // requestAnimationFrame(this.animateEnemies);
     }
-
-
-
 
 }

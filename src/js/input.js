@@ -3,7 +3,6 @@ export default class Input {
         this.input = document.getElementById("typing-input-field");
         this.onChange = this.onChange.bind(this);
         this.enterPressed = this.enterPressed.bind(this);
-        // this.onChange();
         
         this.index = null; 
         this.verify = false; 
