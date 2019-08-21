@@ -22,18 +22,18 @@ export default class Enemey {
 
         //set initial positions of asteroid
         const pos = [[0,0], [740, 0], [1300, 0]];
-        const random = enemy_count%3; 
-        [this.x, this.y] = pos[random];
+        this.random = enemy_count%3; 
+        [this.x, this.y] = pos[this.random];
         // this.x = Math.floor((Math.random() * (this.canvas.width-300))); 
         // this.y = Math.floor((Math.random() * (this.canvas.height - 300))); 
         // this.x_alien = Math.floor((Math.random() * (this.canvas.width - 300))); 
         // this.y_alien = Math.floor((Math.random() * (this.canvas.height - 300))); 
 
         //set delta values for animation 
-        if (random === 0) {
+        if (this.random === 0) {
             this.dx = 2; 
             this.dy = -2;
-        } else if (random === 1) {
+        } else if (this.random === 1) {
             this.dx = 0; 
             this.dy = 2; 
         } else {
@@ -112,7 +112,6 @@ export default class Enemey {
 
     drawAsteroid() {
         this.ctx.drawImage(this.asteroid, 40, 50, 170, 170, this.x, this.y, 150, 170)
-        debugger
         this.ctx.font = "30px Times New Roman";
         this.ctx.fillStyle = "white";
         this.ctx.fillText(this.latex, this.x - 20, this.y + 130);

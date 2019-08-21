@@ -56,7 +56,15 @@ export default class Game {
         if (this.field.verify === true) {
             this.score.value = `${parseInt(this.score.value, 10) + 1}`
             this.field.verify = false; 
+            if (this.enemeyArr[this.field.index].random === 0) {
+                this.spaceship.drawLeft(); 
+            } else if (this.enemeyArr[this.field.index].random === 1) {
+                this.spaceship.drawMiddle(); 
+            } else {
+                this.spaceship.drawRight(); 
+            }
             this.enemeyArr.splice(this.field.index, 1); 
+            // this.spaceship.animateMissle();
         }
         if (this.enemeyArr.length === 10) {
             this.end(); 
@@ -68,7 +76,7 @@ export default class Game {
             this.enemeyArr[i].draw(); 
         }
         this.spaceship.drawSpaceship(); 
-        this.spaceship.draw(); 
+        // this.spaceship.stopAnimation();
     }
 
     start() {

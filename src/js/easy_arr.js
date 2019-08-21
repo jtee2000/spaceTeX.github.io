@@ -46,7 +46,7 @@ export const easyArr = [
     "\\iota", 
     "\\int", 
     "\\leq", 
-    "\\lfoor",
+    "\\lfloor",
     "\\lim", 
     "\\lhd", 
     "\\ll", 
