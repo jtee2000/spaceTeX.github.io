@@ -1,6 +1,5 @@
 import Enemy from './enemy';
 import Input from './input';
-import Enemey from './enemy';
 import { clearInterval } from 'timers';
 import Spaceship from './spaceship';
 import Explosion from './explosion';
@@ -9,9 +8,8 @@ export default class Game {
 
     constructor() {
         //bind functions
-        this.populateEnemies = this.populateEnemies.bind(this); 
         this.renderEnemies = this.renderEnemies.bind(this); 
-
+        this.populateEnemies = this.populateEnemies.bind(this);
         //get and set canvas
         this.canvas = document.getElementById("splash");
         this.canvas.width = 1600;
@@ -19,13 +17,13 @@ export default class Game {
         this.ctx = this.canvas.getContext("2d");
 
         //Populate enemies
-        this.enemeyArr = [new Enemey()]; 
+        this.enemyArr = [new Enemy()]; 
         setInterval(this.populateEnemies, 2000); 
 
         //Create new instance of input field 
         this.field = new Input();
         this.field.input.addEventListener("keydown", (e) => {
-            this.field.enterPressed(e, this.enemeyArr)
+            this.field.enterPressed(e, this.enemyArr)
         });
 
         //instantiate score 
@@ -40,23 +38,32 @@ export default class Game {
         // this.spaceship.drawSpaceship();
     }
 
-
-    populateEnemies() {
-        for (let i = 0; i < 1; i++) {
-            this.enemeyArr.push(new Enemy());
-        }
-    }
-
     
 
     renderEnemies() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        for (let i = 0; i < this.enemeyArr.length; i++) {
-            this.enemeyArr[i].draw(); 
+        for (let i = 0; i < this.enemyArr.length; i++) {
+            this.enemyArr[i].draw(); 
+            if (this.enemyArr[i].random === 0 && (this.enemyArr[i].x >= 630 || this.enemyArr[i].y >=500)) {
+                new Explosion(730, 510);
+                this.end();
+                document.getElementById("you-lose").style.display = "inline";
+                document.getElementById("button").style.display = "inline"
+            } else if (this.enemyArr[i].random === 1 && this.enemyArr[i].y >= 400) {
+                new Explosion(730, 510);
+                this.end();
+                document.getElementById("you-lose").style.display = "inline";
+                document.getElementById("button").style.display = "inline"
+            } else if (this.enemyArr[i].random === 2 && (this.enemyArr[i].x <= 800 || this.enemyArr[i].y >= 550)) {
+                new Explosion(730, 510);
+                this.end();
+                document.getElementById("you-lose").style.display = "inline";
+                document.getElementById("button").style.display = "inline"
+            }
         }
         this.mathField.latex(this.field.input.value);
         if (this.field.verify === true) {
-            const enemy = this.enemeyArr[this.field.index]
+            const enemy = this.enemyArr[this.field.index]
             this.score.value = `${parseInt(this.score.value, 10) + 1}`
             this.field.verify = false; 
             if (enemy.random === 0) {
@@ -66,19 +73,25 @@ export default class Game {
             } else {
                 this.spaceship.drawRight(enemy.x, enemy.y); 
             }
-            this.enemeyArr.splice(this.field.index, 1); 
+            this.enemyArr.splice(this.field.index, 1); 
             // this.spaceship.animateMissle();
             new Explosion(enemy.x, enemy.y);
         }
-        if (this.enemeyArr.length === 10) {
-            this.end(); 
-            document.getElementById("you-lose").style.display = "inline";
-            document.getElementById("button").style.display = "inline"
-            console.log("You lose"); 
-        }
+        // if (this.enemeyArr.length === 10) {
+        //     this.end(); 
+        //     document.getElementById("you-lose").style.display = "inline";
+        //     document.getElementById("button").style.display = "inline"
+        //     console.log("You lose"); 
+        // }
 
         this.spaceship.drawSpaceship(); 
         // this.spaceship.stopAnimation();
+    }
+
+    populateEnemies() {
+        for (let i = 0; i < 1; i++) {
+            this.enemyArr.push(new Enemy());
+        }
     }
 
     start() {

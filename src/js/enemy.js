@@ -1,7 +1,7 @@
 import { easyArr } from "./easy_arr";
 var enemy_count = 0; 
 
-export default class Enemey {
+export default class Enemy {
 
 
     constructor() {
@@ -24,26 +24,18 @@ export default class Enemey {
         const pos = [[0,0], [720, 0], [1300, 0]];
         this.random = enemy_count%3; 
         [this.x, this.y] = pos[this.random];
-        // this.x = Math.floor((Math.random() * (this.canvas.width-300))); 
-        // this.y = Math.floor((Math.random() * (this.canvas.height - 300))); 
-        // this.x_alien = Math.floor((Math.random() * (this.canvas.width - 300))); 
-        // this.y_alien = Math.floor((Math.random() * (this.canvas.height - 300))); 
 
         //set delta values for animation 
         if (this.random === 0) {
-            this.dx = 2; 
+            this.dx = 3; 
             this.dy = -2;
         } else if (this.random === 1) {
             this.dx = 0; 
-            this.dy = 2; 
+            this.dy = 3; 
         } else {
             this.dx = -2; 
             this.dy = 2; 
         }
-        // this.dx = 2; 
-        // this.dy = -2; 
-        // this.dx_alien = -3; 
-        // this.dy_alien = 3; 
 
         //initialize alien and asteroid photos 
         this.asteroid = new Image();
@@ -133,7 +125,7 @@ export default class Enemey {
         this.y += this.dy; 
         this.x_alien += this.dx_alien; 
         this.y_alien += this.dy_alien; 
-        if (this.x > this.canvas.width -256 || this.x < 0) {
+        if (this.x > this.canvas.width - 256 || this.x < 0) {
             this.dx = -this.dx; 
         }
         if (this.y > this.canvas.height- 256 || this.y < 0) {

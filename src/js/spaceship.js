@@ -32,7 +32,7 @@ export default class Spaceship {
 
         //initialize dxl and dyl 
         this.dxl = -60; 
-        this.dyl = -40; 
+        this.dyl = -30; 
 
         //initialize dxm and dym
         this.dxm = 0; 
@@ -54,8 +54,9 @@ export default class Spaceship {
         this.ctx.beginPath(); 
         this.ctx.moveTo(posx, posy); 
         this.ctx.lineTo(posx+x, posy+y); 
-        this.ctx.strokeStyle = "white";
+        this.ctx.strokeStyle = "red";
         this.ctx.lineWidth = 6; 
+        this.ctx.shadowBlur = 100; 
         this.ctx.stroke(); 
     }
 
@@ -64,7 +65,7 @@ export default class Spaceship {
         this.yl += this.dyl; 
         this.xl += this.dxl; 
         this.drawMissle(this.xl, this.yl, 20, 17); 
-        if (this.xl <= x || this.yl <= y) {
+        if (this.xl <= x +128 || this.yl <= y + 256) {
             this.stopAnimation(); 
         }
 
@@ -75,7 +76,7 @@ export default class Spaceship {
         this.ym += this.dym; 
         this.xm += this.dxm; 
         this.drawMissle(this.xm, this.ym, 0, 17); 
-        if (this.ym <= y-150) {
+        if (this.ym <= y+256) {
             this.stopAnimation(); 
         }
 
@@ -86,7 +87,7 @@ export default class Spaceship {
         this.yr += this.dyr; 
         this.xr += this.dxr
         this.drawMissle(this.xr, this.yr, -20, 17); 
-        if (this.yr <= y || this.xr >= x) {
+        if (this.yr <= y+256 || this.xr >= x + 128) {
             this.stopAnimation();
         } 
     }
@@ -94,21 +95,20 @@ export default class Spaceship {
     drawLeft(xpos, ypos) {
         this.left = setInterval(() => {
             this.animateLeft(xpos, ypos)
-        },  10);
+        },  1);
     }
 
     drawMiddle(xpos, ypos) {
         this.middle = setInterval(() => {
             this.animateMiddle(xpos, ypos)
-        }, 1000); 
+        }, 1); 
     }
 
 
     drawRight(xpos, ypos) {
-        
         this.right = setInterval(() => {
             this.animateRight(xpos, ypos)
-        }, 10)
+        }, 1)
         // this.animateMissle();
     }
 

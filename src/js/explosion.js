@@ -5,7 +5,7 @@ export default class Explosion {
         this.animateExplosion = this.animateExplosion.bind(this); 
         this.drawExplosion = this.drawExplosion.bind(this); 
         this.draw = this.draw.bind(this); 
-        
+
 
         this.img = new Image (); 
         this.img.src = "src/assets/explosion.png";
@@ -25,7 +25,7 @@ export default class Explosion {
     }
 
     drawExplosion() {
-       this.explosion = this.ctx.drawImage(this.img, this.sx, this.sy, 256, 256, this.x, this.y, 256, 256)
+       this.explosion = this.ctx.drawImage(this.img, this.sx, this.sy, 256, 256, this.x-75, this.y, 256, 256)
     }
 
 
