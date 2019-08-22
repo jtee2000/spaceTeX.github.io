@@ -41,7 +41,7 @@ export default class Explosion {
     }   
     
     animateExplosion() {
-       this.animation = setInterval(this.draw, 10);
+       this.animation = setInterval(this.draw, 10.33);
         this.draw();
     }
 

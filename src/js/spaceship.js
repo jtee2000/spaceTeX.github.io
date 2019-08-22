@@ -23,11 +23,11 @@ export default class Spaceship {
         this.ship.src = "src/assets/blackspaceship.png"; 
 
         //initialize position 
-        this.xl = 780; 
+        this.xl = 790; 
         this.yl = 550; 
-        this.xr = 780; 
+        this.xr = 790; 
         this.yr = 550; 
-        this.xm = 780; 
+        this.xm = 790; 
         this.ym = 550; 
 
         //initialize dxl and dyl 
@@ -55,7 +55,7 @@ export default class Spaceship {
         this.ctx.moveTo(posx, posy); 
         this.ctx.lineTo(posx+x, posy+y); 
         this.ctx.strokeStyle = "red";
-        this.ctx.lineWidth = 6; 
+        this.ctx.lineWidth = 13; 
         this.ctx.shadowBlur = 100; 
         this.ctx.stroke(); 
     }
@@ -116,9 +116,9 @@ export default class Spaceship {
         window.clearInterval(this.left);
         window.clearInterval(this.right);
         window.clearInterval(this.middle);
-        this.xr = 780; 
-        this.xm = 780; 
-        this.xl = 780; 
+        this.xr = 790; 
+        this.xm = 790; 
+        this.xl = 790; 
         this.yr = 550; 
         this.ym = 550; 
         this.yl = 550; 

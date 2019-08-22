@@ -49,7 +49,6 @@ export default class Game {
     
     
     renderEnemies() {
-        debugger
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.enemyArr.length; i++) {
             this.enemyArr[i].draw(); 
@@ -78,14 +77,16 @@ export default class Game {
             new Explosion(enemy.x, enemy.y)
         }
         this.spaceship.drawSpaceship(); 
-        // this.time = requestAnimationFrame(this.renderEnemies)
-
+        // this.animationFunction = requestAnimationFrame(this.renderEnemies);
 
     }
 
     lose() {
         new Explosion(730, 510);
-        this.end();
+        // this.end();
+        debugger
+        cancelAnimationFrame(this.animationFunction);
+
         document.getElementById("you-lose").style.display = "inline";
         document.getElementById("button").style.display = "inline"
         document.getElementById("typing-input-field").style.display = "none";
@@ -110,6 +111,6 @@ export default class Game {
 
     end() {
         window.clearInterval(this.timer);
-        // window.cancelAnimationFrame(this.time);
+        // cancelAnimationFrame(this.animationFunction);
     }
 }
