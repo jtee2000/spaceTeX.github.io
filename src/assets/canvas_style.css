@@ -66,22 +66,19 @@
 
 .loser h1{
     display: none; 
-    font-size: 50px; 
+    font-size: 80px; 
     position: absolute; 
-    /* color: white;
-    z-index: 100;  */
-    right: calc(50% - 155px); 
-    top: 30%; 
+    width: 500px;
+    right: calc(50% - 250px); 
+    top: 38%; 
     font-family: 'Quantico', sans-serif;
     text-align: center; 
-
+    margin-bottom: 20px; 
     color: #fff;
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    /* border-right: .15em solid #017B00; */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    
-    letter-spacing: .15em; /* Adjust as needed */
+    overflow: hidden; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .15em; 
     animation: 
     typing 1.5s steps(30, end),
     blink-caret .3s step-end 8;
@@ -99,10 +96,6 @@
   50% { border-color: transparent }
 } */
 
-.loser:hover {
-    cursor: pointer;
-}
-
 .homescreen {
     background-color: black; 
     display: block; 
@@ -117,7 +110,6 @@
     min-width: 370px;
     top: 50%; 
     font-size: 70px; 
-    /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  */
     font-family: 'Quantico', sans-serif;
     color: white;
     position: absolute;
@@ -199,7 +191,6 @@
 .social-links-ul-li {
   display: block;
   margin: 5px;
-  /* background: rgba(0, 0, 0, 0.36); */
   background: #017B00;
   width: 310px;
   text-align: right;
@@ -219,7 +210,6 @@
   -ms-transform: translate(110px, 0);
   -o-transform: translate(110px, 0);
   transform: translate(110px, 0);
-  /* background: rgba(255, 255, 255, 0.872); */
   background: #244056;
 }
 
@@ -228,17 +218,13 @@
 }
 
 .social-links-ul-li:hover .aa {
-  /* color: #000; */
   color: white;
   font-family: 'Quantico', sans-serif;
   margin-right: 10px; 
   text-decoration: underline;
-  /* color: #017B00; */
 }
 .social-links-ul-li:hover i {
   color: #fff;
-  /* background: rgba(0, 0, 0, 0.36); */
-  /* background-color: white; */
   -webkit-transform: rotate(360deg);
   -moz-transform: rotate(360deg);
   -ms-transform: rotate(360deg);
@@ -256,8 +242,6 @@
   margin-bottom: 20px;
   margin-right: 5px;  
   color: #000;
-  /* background-color: #fff; */
-  /* border: 1px solid white; */
   color: white; 
   padding: 15px;
   -webkit-border-radius: 50%;
@@ -266,11 +250,53 @@
   width: 20px;
   height: 20px;
   font-size: 24px;
-  /* background: #ffffff; */
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
   -o-transform: rotate(0deg);
   transform: rotate(0deg);
-  /* text-align: center; */
+}
+
+#your-score {
+    display: none; 
+    position: absolute; 
+    color: white;
+    font-size: 40px; 
+    z-index: 30; 
+    font-family: 'Quantico', sans-serif;
+    top: 52%; 
+    text-align: center; 
+    width: 400px; 
+    right: Calc(50% - 200px);
+    overflow: hidden; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .15em;
+    animation: 
+    typing 1.5s steps(30, end),
+    blink-caret .3s step-end 8;
+}
+
+#new-game {
+    display: none; 
+    position: absolute; 
+    color: white;
+    font-size: 40px; 
+    z-index: 30; 
+    font-family: 'Quantico', sans-serif;
+    top: 62%; 
+    text-align: center; 
+    width: 400px; 
+    right: Calc(50% - 200px);  
+    overflow: hidden; 
+    white-space: nowrap; 
+    margin: 0 auto; 
+    letter-spacing: .15em; 
+    animation: 
+    typing 1.5s steps(30, end),
+    blink-caret .3s step-end 8;
+}
+
+#new-game:hover {
+    cursor: pointer;
 }

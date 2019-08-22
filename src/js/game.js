@@ -40,7 +40,7 @@ export default class Game {
 
 
         //lose button 
-        const lose = document.getElementById("you-lose");
+        const lose = document.getElementById("new-game");
         lose.addEventListener("click", () => {
             location.reload();
         })
@@ -49,24 +49,16 @@ export default class Game {
     
     
     renderEnemies() {
+        debugger
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.enemyArr.length; i++) {
             this.enemyArr[i].draw(); 
             if (this.enemyArr[i].random === 0 && (this.enemyArr[i].x >= 630 || this.enemyArr[i].y >=500)) {
-                new Explosion(730, 510);
-                this.end();
-                document.getElementById("you-lose").style.display = "inline";
-                document.getElementById("button").style.display = "inline"
+                this.lose();
             } else if (this.enemyArr[i].random === 1 && this.enemyArr[i].y >= 400) {
-                new Explosion(730, 510);
-                this.end();
-                document.getElementById("you-lose").style.display = "inline";
-                document.getElementById("button").style.display = "inline"
+                this.lose();
             } else if (this.enemyArr[i].random === 2 && (this.enemyArr[i].x <= 800 || this.enemyArr[i].y >= 550)) {
-                new Explosion(730, 510);
-                this.end();
-                document.getElementById("you-lose").style.display = "inline";
-                document.getElementById("button").style.display = "inline"
+                this.lose()
             }
         }
         this.mathField.latex(this.field.input.value);
@@ -85,16 +77,24 @@ export default class Game {
             // this.spaceship.animateMissle();
             new Explosion(enemy.x, enemy.y);
         }
-        // if (this.enemeyArr.length === 10) {
-        //     this.end(); 
-        //     document.getElementById("you-lose").style.display = "inline";
-        //     document.getElementById("button").style.display = "inline"
-        //     console.log("You lose"); 
-        // }
         this.spaceship.drawSpaceship(); 
         // this.time = requestAnimationFrame(this.renderEnemies)
 
 
+    }
+
+    lose() {
+        new Explosion(730, 510);
+        this.end();
+        document.getElementById("you-lose").style.display = "inline";
+        document.getElementById("button").style.display = "inline"
+        document.getElementById("typing-input-field").style.display = "none";
+        document.getElementById("mathField").style.display = "none";
+        document.getElementById("score").style.display = "none"; 
+        const your_score = document.getElementById("your-score");
+        your_score.innerHTML = `You scored ${this.score.value}!`; 
+        your_score.style.display = "inline"; 
+        document.getElementById("new-game").style.display = "inline"
     }
 
     populateEnemies() {
