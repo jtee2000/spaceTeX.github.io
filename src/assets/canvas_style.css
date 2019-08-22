@@ -51,17 +51,20 @@
 #mathField {
     position: absolute;
     z-index: 100; 
-    bottom: 50%; 
-    width: 300px; 
+    bottom: 60%; 
+    width: 700px; 
     padding: 10px; 
     height: 75px; 
-    font-size: 70px; 
-    right: calc(50% - 135px); 
+    font-size: 150px; 
+    right: calc(50% - 350px); 
     color: white; 
     border: none;  
     /* background-color: gray; */
     text-align: center;
+}
 
+#mathField:focus {
+    border: hidden; 
 }
 
 .loser h1{

@@ -44,6 +44,11 @@ export default class Game {
         lose.addEventListener("click", () => {
             location.reload();
         })
+
+
+        //animate explosion 
+        // this.enemy_xpos = null; 
+        // this.enemy_ypos = null;
     }
 
     
@@ -51,7 +56,7 @@ export default class Game {
     renderEnemies() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         for (let i = 0; i < this.enemyArr.length; i++) {
-            this.enemyArr[i].draw(); 
+            this.enemyArr[i].animateEnemies(); 
             if (this.enemyArr[i].random === 0 && (this.enemyArr[i].x >= 630 || this.enemyArr[i].y >=500)) {
                 this.lose();
             } else if (this.enemyArr[i].random === 1 && this.enemyArr[i].y >= 400) {
@@ -74,8 +79,14 @@ export default class Game {
             }
             this.enemyArr.splice(this.field.index, 1); 
             // this.spaceship.animateMissle();
-            new Explosion(enemy.x, enemy.y)
+            new Explosion(enemy.x, enemy.y).animateExplosion();
+            // this.explosion = true; 
+            // this.enemy_xpos = enemy.x; 
+            // this.enemy_ypos = enemy.y; 
         }
+        // if (this.explosion === true) {
+        //     new Explosion(this.enemy_xpos, this.enemy_ypos); 
+        // }
         this.spaceship.drawSpaceship(); 
         // this.animationFunction = requestAnimationFrame(this.renderEnemies);
 
@@ -83,9 +94,9 @@ export default class Game {
 
     lose() {
         new Explosion(730, 510);
-        // this.end();
-        debugger
-        cancelAnimationFrame(this.animationFunction);
+        this.end();
+        
+        // cancelAnimationFrame(this.animationFunction);
 
         document.getElementById("you-lose").style.display = "inline";
         document.getElementById("button").style.display = "inline"
@@ -99,14 +110,12 @@ export default class Game {
     }
 
     populateEnemies() {
-        for (let i = 0; i < 1; i++) {
-            this.enemyArr.push(new Enemy(this.asteroid));
-        }
+        this.enemyArr.push(new Enemy(this.asteroid));
     }
 
     start() {
         this.timer = setInterval(this.renderEnemies,  1000/60);
-        // this.renderEnemies();
+        this.renderEnemies();
     }
 
     end() {

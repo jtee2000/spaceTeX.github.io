@@ -37,11 +37,11 @@ export default class Explosion {
             this.stopAnimation(); 
         }
         this.drawExplosion()
-        // this.test = requestAnimationFrame(this.draw)
+        this.test = requestAnimationFrame(this.draw)
     }   
     
     animateExplosion() {
-       this.animation = setInterval(this.draw, 10.33);
+    //    this.animation = setInterval(this.draw, 1000/60);
         this.draw();
     }
 
