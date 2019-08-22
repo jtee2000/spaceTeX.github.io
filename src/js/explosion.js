@@ -41,12 +41,12 @@ export default class Explosion {
     }   
     
     animateExplosion() {
-       this.animation = setInterval(this.draw, 1000 / 60);
+       this.animation = setInterval(this.draw, 10);
         this.draw();
     }
 
     stopAnimation() {
-        window.clearInterval(this.animation);
+        // window.clearInterval(this.animation);
         this.sx = 0; 
         this.sy = 0; 
     }

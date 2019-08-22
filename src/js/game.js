@@ -75,7 +75,7 @@ export default class Game {
             }
             this.enemyArr.splice(this.field.index, 1); 
             // this.spaceship.animateMissle();
-            new Explosion(enemy.x, enemy.y);
+            new Explosion(enemy.x, enemy.y)
         }
         this.spaceship.drawSpaceship(); 
         // this.time = requestAnimationFrame(this.renderEnemies)
@@ -104,7 +104,7 @@ export default class Game {
     }
 
     start() {
-        this.timer = setInterval(this.renderEnemies, 1000 / 60);
+        this.timer = setInterval(this.renderEnemies,  1000/60);
         // this.renderEnemies();
     }
 
