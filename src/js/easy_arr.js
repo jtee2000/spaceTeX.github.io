@@ -23,7 +23,6 @@ export const easyArr = [
     "\\chi", 
     "\\circ", 
     "\\cong", 
-    "\\coprod", 
     "\\clubsuit", 
     "\\epsilon", 
     "\\equiv", 
