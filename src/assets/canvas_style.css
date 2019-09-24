@@ -303,3 +303,7 @@
 #new-game:hover {
     cursor: pointer;
 }
+
+html {
+  background-color: black; 
+}
